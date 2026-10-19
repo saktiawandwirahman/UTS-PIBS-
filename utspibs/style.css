@@ -1,0 +1,219 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #d9d9d9;
+  color: #222;
+  line-height: 1.5;
+}
+
+/* ================= DEFAULT: SMARTPHONE (< 600px) =================
+   Semua blok tersusun vertikal, lebar 100% */
+.wrapper {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px;
+}
+
+header, nav, section, aside, footer {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #7fd1d1;
+  padding: 12px;
+}
+
+header, footer {
+  background: #eeeeee;
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.logo {
+  width: 56px;
+  height: 56px;
+  background: #4a86c8;
+  border: 2px solid #2b4f8a;
+  transform: rotate(45deg) scale(0.8);
+  flex-shrink: 0;
+}
+header h1 {
+  font-size: 1.3rem;
+}
+
+/* Nav: daftar vertikal dengan scroll */
+nav {
+  max-height: 110px;
+  overflow-y: auto;
+}
+nav ul {
+  list-style: none;
+}
+nav a {
+  display: block;
+  padding: 2px 0;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #333;
+  text-decoration: none;
+}
+nav a:hover,
+nav a.aktif {
+  font-weight: bold;
+  color: #1a5fb4;
+}
+
+/* Section */
+section {
+  min-height: 180px;
+}
+.panel {
+  display: none;
+}
+.panel.tampil {
+  display: block;
+}
+.panel h2 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+.panel ul {
+  padding-left: 20px;
+  font-size: 0.9rem;
+}
+table {
+  font-size: 0.9rem;
+  border-collapse: collapse;
+}
+th {
+  text-align: right;
+  padding: 3px 4px;
+  white-space: nowrap;
+  vertical-align: top;
+}
+td {
+  padding: 3px 4px;
+}
+
+/* Aside */
+aside {
+  max-height: 110px;
+  overflow-y: auto;
+  font-style: italic;
+}
+aside h3 {
+  font-size: 0.95rem;
+}
+aside ul {
+  list-style: none;
+  font-size: 0.9rem;
+}
+
+/* Footer */
+footer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.8rem;
+}
+footer .copy {
+  text-align: center;
+}
+footer .info {
+  text-align: right;
+}
+footer .info strong {
+  font-size: 1rem;
+}
+
+/* ================= TABLET PORTRAIT (600px - 991px) =================
+   Nav horizontal (menu berjajar), semua blok 100% */
+@media (min-width: 600px) and (max-width: 991px) {
+  nav {
+    max-height: none;
+    overflow: hidden;
+  }
+  nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  aside {
+    max-height: none;
+  }
+  aside ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  section {
+    min-height: 240px;
+  }
+  footer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
+
+/* ================= TABLET LANDSCAPE (992px - 1199px) =================
+   Nav 25% | Section 75% ; Aside & Footer 100% */
+@media (min-width: 992px) and (max-width: 1199px) {
+  nav {
+    width: calc(25% - 4px);
+    max-height: none;
+    min-height: 260px;
+  }
+  section {
+    width: calc(75% - 4px);
+    min-height: 260px;
+  }
+  aside {
+    max-height: none;
+  }
+  aside ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
+
+/* ================= DESKTOP (>= 1200px) =================
+   Nav 25% | Section 50% | Aside 25% ; Header & Footer 100% */
+@media (min-width: 1200px) {
+  nav {
+    width: calc(25% - 6px);
+    max-height: none;
+    min-height: 320px;
+  }
+  section {
+    width: calc(50% - 6px);
+    min-height: 320px;
+  }
+  aside {
+    width: calc(25% - 6px);
+    max-height: none;
+    min-height: 320px;
+  }
+  footer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
